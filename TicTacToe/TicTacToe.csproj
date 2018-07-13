@@ -60,6 +60,7 @@
     </Page>
     <Compile Include="Model\GameManagerModel.cs" />
     <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="Utilities\PropertyChange.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="View\config\App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
