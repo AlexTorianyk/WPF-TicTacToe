@@ -8,5 +8,21 @@ namespace TicTacToe.Model
 {
     public class GameManagerModel
     {
+        public PlayerModel Player1 { get; set; }
+        public PlayerModel Player2 { get; set; }
+        //some board class with the array/dictionary
+
+
+        public GameManagerModel()
+        {
+            InitPlayers();
+            
+        }
+
+        private void InitPlayers()
+        {
+            Player1 = new PlayerModel('X', "Blue");
+            Player2 = new PlayerModel('O', "Red");
+        }
     }
 }
