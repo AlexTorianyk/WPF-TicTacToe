@@ -5,7 +5,7 @@
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:TicTacToe"
 		mc:Ignorable="d" WindowStartupLocation="CenterScreen"
-		Title="MainWindow" Height="620" Width="600">
+		Title="" Height="620" Width="600">
 
 	<Window.Resources>
 		<!--Rounded button-->
@@ -44,8 +44,24 @@
 		<Style x:Key="GameGridBtn" TargetType="Button">
 			<Setter Property="FontSize" Value="130"/>
 			<Setter Property="Background" Value="White"/>
-			<Setter Property="Content" Value="X"/>
+			<Setter Property="Content" Value="xD"/>
+
+			<Style.Triggers>
+				<EventTrigger RoutedEvent="Button.Click">
+					<EventTrigger.Actions>
+						<BeginStoryboard>
+							<Storyboard>
+								<DoubleAnimation
+									Storyboard.TargetProperty="(Button.FontSize)"
+									From="0" To="130" Duration="0:0:1"/>
+							</Storyboard>
+						</BeginStoryboard>
+					</EventTrigger.Actions>
+				</EventTrigger>
+			</Style.Triggers>
 		</Style>
+		
+		
 	</Window.Resources>
 	
 	<DockPanel>
