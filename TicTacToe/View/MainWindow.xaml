@@ -4,6 +4,7 @@
 		xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
 		xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
 		xmlns:local="clr-namespace:TicTacToe"
+		xmlns:ValueConverter="clr-namespace:TicTacToe.Utilities.ValueConverters"
 		mc:Ignorable="d" WindowStartupLocation="CenterScreen"
 		Title="" Height="620" Width="600">
 
@@ -61,7 +62,9 @@
 			</Style.Triggers>
 		</Style>
 		
-		
+		<!--Converters-->
+		<ValueConverter:DebugDataBindingConverter x:Key="DebugConverter"/>
+
 	</Window.Resources>
 	
 	<DockPanel>
@@ -86,7 +89,7 @@
 				<DockPanel LastChildFill="False" Grid.Column="1" Grid.Row="1">
 					
 					<TextBlock  DockPanel.Dock="Left" Style="{StaticResource ScoreTxtBlock}"
-								Text="{Binding gameManagerModel.Player1.PlayerScore}"
+								Text="{Binding gameManagerModel.Player1.PlayerScore, Converter={StaticResource DebugConverter}}"
 								Foreground="{Binding gameManagerModel.Player1.PlayerColor}"/>
 				</DockPanel>
 				
