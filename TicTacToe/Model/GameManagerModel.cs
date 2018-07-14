@@ -10,13 +10,12 @@ namespace TicTacToe.Model
     {
         public IPlayerModel Player1 { get; set; }
         public IPlayerModel Player2 { get; set; }
-        //some board class with the array/dictionary
-
+        public IGameBoardModel GameBoard { get; set; }
 
         public GameManagerModel()
         {
             InitPlayers();
-            
+            GameBoard = new GameBoardModel();
         }
 
         private void InitPlayers()
