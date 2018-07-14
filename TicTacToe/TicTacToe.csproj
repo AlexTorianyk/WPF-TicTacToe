@@ -58,7 +58,11 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Compile Include="Model\GameBoardModel.cs" />
     <Compile Include="Model\GameManagerModel.cs" />
+    <Compile Include="Interfaces\IGameBoardModel.cs" />
+    <Compile Include="Interfaces\IGameManagerModel.cs" />
+    <Compile Include="Interfaces\IPlayerModel.cs" />
     <Compile Include="Model\PlayerModel.cs" />
     <Compile Include="Utilities\PropertyChange.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
@@ -98,8 +102,6 @@
   <ItemGroup>
     <None Include="View\config\App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

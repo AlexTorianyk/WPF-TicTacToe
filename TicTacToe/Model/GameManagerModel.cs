@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe.Model
 {
-    public class GameManagerModel
+    public class GameManagerModel : IGameManagerModel
     {
         public PlayerModel Player1 { get; set; }
         public PlayerModel Player2 { get; set; }

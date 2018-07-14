@@ -53,7 +53,7 @@
 							<Storyboard>
 								<DoubleAnimation
 									Storyboard.TargetProperty="(Button.FontSize)"
-									From="0" To="130" Duration="0:0:1"/>
+									From="0" To="130" Duration="0:0:0.5"/>
 							</Storyboard>
 						</BeginStoryboard>
 					</EventTrigger.Actions>

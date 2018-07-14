@@ -7,7 +7,7 @@ using TicTacToe.Utilities;
 
 namespace TicTacToe.Model
 {
-    public class PlayerModel : PropertyChange
+    public class PlayerModel : PropertyChange, IPlayerModel
     {
         private string _playerColor;
         private char _playerSymbol;
