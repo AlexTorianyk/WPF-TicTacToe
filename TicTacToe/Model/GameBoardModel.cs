@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Collections.ObjectModel;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -9,37 +10,26 @@ namespace TicTacToe.Model
 {
     public class GameBoardModel : PropertyChange, IGameBoardModel
     {
-        private IDictionary<int, char> _gameBoard;
-        public IDictionary<int, char> GameBoard
+        private ObservableCollection<char> _gameGrid;
+        public ObservableCollection<char> GameGrid
         {
-            get => _gameBoard;
-            set { _gameBoard = value; OnPropertyChanged(); }
+            get => _gameGrid;
+            set { _gameGrid = value; OnPropertyChanged(); }
         }
 
         public GameBoardModel()
         {
-            ResetGameBoard();
+            ResetGrid();
         }
 
-        private void ResetGameBoard()
+        private void ResetGrid()
         {
-            GameBoard = new Dictionary<int, char>
-            {
-                {1, 'E'},
-                {2, 'E'},
-                {3, 'E'},
-                {4, 'E'},
-                {5, 'E'},
-                {6, 'E'},
-                {7, 'E'},
-                {8, 'E'},
-                {9, 'E'}
-            };
+            GameGrid = new ObservableCollection<char> {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'};
         }
 
         public void TakeTurn(int placement, char symbol)
         {
-            GameBoard[placement] = symbol;
+            GameGrid[placement] = symbol;
         }
     }
 }
