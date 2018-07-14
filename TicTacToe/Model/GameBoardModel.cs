@@ -36,5 +36,10 @@ namespace TicTacToe.Model
                 {9, 'E'}
             };
         }
+
+        public void TakeTurn(int placement, char symbol)
+        {
+            GameBoard[placement] = symbol;
+        }
     }
 }
