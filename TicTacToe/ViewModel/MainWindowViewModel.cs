@@ -9,7 +9,7 @@ namespace TicTacToe.ViewModel
 {
     public class MainWindowViewModel
     {
-        public GameManagerModel gameManagerModel { get; set; }
+        public IGameManagerModel gameManagerModel { get; set; }
 
         public MainWindowViewModel()
         {

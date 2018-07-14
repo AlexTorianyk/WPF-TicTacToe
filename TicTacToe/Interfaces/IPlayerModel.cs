@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace TicTacToe.Model
 {
-    interface IPlayerModel
+    public interface IPlayerModel
     {
         string PlayerColor { get; set; }
         char PlayerSymbol { get; set; }

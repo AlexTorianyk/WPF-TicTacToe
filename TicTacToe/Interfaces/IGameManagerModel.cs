@@ -8,7 +8,7 @@ namespace TicTacToe.Model
 {
     public interface IGameManagerModel
     {
-        PlayerModel Player1 { get; set; }
-        PlayerModel Player2 { get; set; }
+        IPlayerModel Player1 { get; set; }
+        IPlayerModel Player2 { get; set; }
     }
 }

@@ -8,8 +8,8 @@ namespace TicTacToe.Model
 {
     public class GameManagerModel : IGameManagerModel
     {
-        public PlayerModel Player1 { get; set; }
-        public PlayerModel Player2 { get; set; }
+        public IPlayerModel Player1 { get; set; }
+        public IPlayerModel Player2 { get; set; }
         //some board class with the array/dictionary
 
 
