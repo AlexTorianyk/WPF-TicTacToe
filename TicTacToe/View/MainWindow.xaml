@@ -156,10 +156,6 @@
 			<Border Grid.Column="3" Grid.Row="3" BorderBrush="LightGray" BorderThickness="0">
 				<Button Content="{Binding GameManager.GameGrid.GameBoard[9]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
-			
-
-
-
 		</Grid>
 	</DockPanel>
 </Window>
