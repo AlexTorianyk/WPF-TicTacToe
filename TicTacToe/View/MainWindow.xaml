@@ -122,7 +122,7 @@
 			</Grid.ColumnDefinitions>
 
 			<Border Grid.Column="1" Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-				<Button Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding gameManagerModel.GameGrid.GameBoard[1]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1 0 1 1">
