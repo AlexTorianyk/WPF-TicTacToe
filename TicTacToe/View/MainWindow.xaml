@@ -86,8 +86,8 @@
 				<DockPanel LastChildFill="False" Grid.Column="1" Grid.Row="1">
 					
 					<TextBlock  DockPanel.Dock="Left" Style="{StaticResource ScoreTxtBlock}"
-								Text="{Binding gameManagerModel.Player1.PlayerScore}"
-								Foreground="{Binding gameManagerModel.Player1.PlayerColor}"/>
+								Text="{Binding GameManager.Player1.PlayerScore}"
+								Foreground="{Binding GameManager.Player1.PlayerColor}"/>
 				</DockPanel>
 				
 				<!--New game Button-->
@@ -97,8 +97,8 @@
 				<!--Player 2 score-->
 				<DockPanel LastChildFill="False" Grid.Column="3" Grid.Row="1">
 					<TextBlock  DockPanel.Dock="Right" Style="{StaticResource ScoreTxtBlock}"
-								Text="{Binding gameManagerModel.Player2.PlayerScore}"
-								Foreground="{Binding gameManagerModel.Player2.PlayerColor}"/>
+								Text="{Binding GameManager.Player2.PlayerScore}"
+								Foreground="{Binding GameManager.Player2.PlayerColor}"/>
 				</DockPanel>
 			</Grid>
 		</Border>
@@ -122,39 +122,39 @@
 			</Grid.ColumnDefinitions>
 
 			<Border Grid.Column="1" Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-				<Button Content="{Binding gameManagerModel.GameGrid.GameBoard[1]}" Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[1]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="2" Grid.Row="1" BorderBrush="LightGray" BorderThickness="1 0 1 1">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[2]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="3" Grid.Row="1" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[3]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="1" Grid.Row="2" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[4]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="2" Grid.Row="2" BorderBrush="LightGray" BorderThickness="1 0 1 1">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[5]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="3" Grid.Row="2" BorderBrush="LightGray" BorderThickness="0 0 0 1">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[6]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="1" Grid.Row="3" BorderBrush="LightGray" BorderThickness="0">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[7]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="2" Grid.Row="3" BorderBrush="LightGray" BorderThickness="1 0 1 0">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[8]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 
 			<Border Grid.Column="3" Grid.Row="3" BorderBrush="LightGray" BorderThickness="0">
-				<Button  Style="{StaticResource GameGridBtn}"/>
+				<Button Content="{Binding GameManager.GameGrid.GameBoard[9]}" Style="{StaticResource GameGridBtn}"/>
 			</Border>
 			
 
