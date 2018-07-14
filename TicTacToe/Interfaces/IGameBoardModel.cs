@@ -8,6 +8,6 @@ namespace TicTacToe.Model
 {
     public interface IGameBoardModel
     {
-        IDictionary<int[], char> GameBoard { get; set; }
+        IDictionary<int, char> GameBoard { get; set; }
     }
 }
