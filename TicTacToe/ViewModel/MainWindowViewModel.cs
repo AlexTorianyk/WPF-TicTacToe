@@ -22,7 +22,7 @@ namespace TicTacToe.ViewModel
         private void OnPlaceSymbol(object param)
         {
             int placement = Convert.ToInt32(param);
-            GameManager.GameGrid.TakeTurn(placement, 'D');
+            GameManager.GameGrid.TakeTurn(placement, 'O');
         }
     }
 }

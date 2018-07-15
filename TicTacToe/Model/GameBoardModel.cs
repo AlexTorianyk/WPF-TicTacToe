@@ -10,6 +10,7 @@ namespace TicTacToe.Model
 {
     public class GameBoardModel : PropertyChange, IGameBoardModel
     {
+        // i used an abservable collection because it's much less trouble to represent something in the UI with it
         private ObservableCollection<char> _gameGrid;
         public ObservableCollection<char> GameGrid
         {
@@ -27,9 +28,13 @@ namespace TicTacToe.Model
             GameGrid = new ObservableCollection<char> {'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E', 'E'};
         }
 
+        // Simulates a player placing a symbol on the grid
         public void TakeTurn(int placement, char symbol)
         {
-            GameGrid[placement] = symbol;
+            if (GameGrid[placement] == 'E')
+            {
+                GameGrid[placement] = symbol;
+            }
         }
     }
 }
