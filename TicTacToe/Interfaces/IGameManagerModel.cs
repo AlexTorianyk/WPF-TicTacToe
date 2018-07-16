@@ -10,6 +10,7 @@ namespace TicTacToe.Model
     {
         IPlayerModel Player1 { get; set; }
         IPlayerModel Player2 { get; set; }
+        IPlayerModel CurrentPlayer { get; set; }
         IGameBoardModel GameGrid { get; set; }
     }
 }
