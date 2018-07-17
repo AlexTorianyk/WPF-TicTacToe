@@ -76,6 +76,7 @@
     <Compile Include="Interfaces\IGameManagerModel.cs" />
     <Compile Include="Interfaces\IPlayerModel.cs" />
     <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="Utilities\Events\PlayerTookTurnEvent.cs" />
     <Compile Include="Utilities\PropertyChange.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ValueConverters\CellOccupationToEnabledConverter.cs" />
