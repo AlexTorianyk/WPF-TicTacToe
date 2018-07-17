@@ -23,7 +23,7 @@ namespace TicTacToe.Model
             ResetGrid();
         }
 
-        private void ResetGrid()
+        public void ResetGrid()
         {
             GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
         }

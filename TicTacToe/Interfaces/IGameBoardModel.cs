@@ -11,5 +11,8 @@ namespace TicTacToe.Model
     {
         ObservableCollection<char> GameGrid { get; set; }
         void TakeTurn(int placement, char symbol);
+        void ResetGrid();
+        bool CheckWin();
+        bool CheckDraw();
     }
 }
