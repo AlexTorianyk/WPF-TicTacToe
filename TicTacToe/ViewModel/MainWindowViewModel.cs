@@ -36,6 +36,14 @@ namespace TicTacToe.ViewModel
             _eventAggregator.GetEvent<PlayerTookTurnEvent>().Publish();
         }
 
-        private void OnNewGame(object param) => GameManager.GameGrid.ResetGrid();
+        private void OnNewGame(object param)
+        {
+            GameManager.GameGrid.ResetGrid();
+            // since Player 1 is the only one who is able to be a current player at a draw
+            // and the scores colors at the top are bound to that of the player's
+            // i thought it'd be more efficient to just change his colour, than create 2 new objects
+            // and add a background property and the OnPropertyChanged()[i'm lazey]
+            GameManager.Player1.PlayerColor = "Blue";
+        }
     }
 }

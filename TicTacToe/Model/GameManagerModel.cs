@@ -41,7 +41,7 @@ namespace TicTacToe.Model
             GameGrid = new GameBoardModel();
         }
 
-        private void InitPlayers()
+        public void InitPlayers()
         {
             Player1 = new PlayerModel('X', "Blue");
             Player2 = new PlayerModel('O', "Red");
