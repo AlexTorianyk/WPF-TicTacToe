@@ -13,8 +13,12 @@ namespace TicTacToe.Model
         private char _playerSymbol;
         private int _playerScore = 0;
 
-        public string PlayerColor { get => _playerColor; set => _playerColor = value; }
         public char PlayerSymbol { get => _playerSymbol; set => _playerSymbol = value; }
+        public string PlayerColor
+        {
+            get => _playerColor;
+            set { _playerColor = value; OnPropertyChanged(); }
+        }
         public int PlayerScore
         {
             get => _playerScore;
