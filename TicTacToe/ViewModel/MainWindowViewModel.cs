@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -10,12 +11,14 @@ namespace TicTacToe.ViewModel
 {
     public class MainWindowViewModel
     {
+        private readonly IEventAggregator _eventAggregator;
         public IGameManagerModel GameManager { get; set; }
         public RelayCommand PlaceSymbol { get; set; }
 
-        public MainWindowViewModel()
+        public MainWindowViewModel(IEventAggregator eventAggregator)
         {
-            GameManager = new GameManagerModel();
+            _eventAggregator = eventAggregator;
+            GameManager = new GameManagerModel(_eventAggregator);
             PlaceSymbol = new RelayCommand(OnPlaceSymbol, x => true);
         }
 

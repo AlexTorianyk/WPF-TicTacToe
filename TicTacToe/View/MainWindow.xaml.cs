@@ -12,6 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using TicTacToe.Utilities.ApplicationServices;
 using TicTacToe.ViewModel;
 
 namespace TicTacToe
@@ -23,7 +24,7 @@ namespace TicTacToe
     {
         public MainWindow()
         {
-            DataContext = new MainWindowViewModel();
+            DataContext = new MainWindowViewModel(ApplicationService.Instance.EventAggregator);
             InitializeComponent();
         }
     }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Prism.Events;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,13 +9,17 @@ namespace TicTacToe.Model
 {
     public class GameManagerModel : IGameManagerModel
     {
+        #region Variables and Fields
+        private readonly IEventAggregator _eventAggregator;
+
         public IPlayerModel Player1 { get; set; }
         public IPlayerModel Player2 { get; set; }
         public IPlayerModel CurrentPlayer { get; set; }
         public IGameBoardModel GameGrid { get; set; }
-
-        public GameManagerModel()
+        #endregion
+        public GameManagerModel(IEventAggregator eventAggregator)
         {
+            _eventAggregator = eventAggregator;
             InitPlayers();
             GameGrid = new GameBoardModel();
         }
@@ -23,6 +28,7 @@ namespace TicTacToe.Model
         {
             Player1 = new PlayerModel('X', "Blue");
             Player2 = new PlayerModel('O', "Red");
+            CurrentPlayer = Player1;
         }
     }
 }
