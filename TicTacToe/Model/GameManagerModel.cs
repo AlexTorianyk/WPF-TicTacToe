@@ -53,7 +53,6 @@ namespace TicTacToe.Model
             if (GameGrid.CheckWin())
             {
                 GameOver = true;
-                MessageBox.Show($"Player {CurrentPlayer.PlayerSymbol} has won! CYKA");
                 CurrentPlayer.PlayerScore++;
                 return;
             }
@@ -61,7 +60,6 @@ namespace TicTacToe.Model
             {
                 CurrentPlayer.PlayerColor = "LightGray";
                 GameOver = true;
-                MessageBox.Show("DRAW Kurwa");
                 return;
             }
             SwitchCurrentPlayer();

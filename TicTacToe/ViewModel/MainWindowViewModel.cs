@@ -15,12 +15,14 @@ namespace TicTacToe.ViewModel
         private readonly IEventAggregator _eventAggregator;
         public IGameManagerModel GameManager { get; set; }
         public RelayCommand PlaceSymbol { get; set; }
+        public RelayCommand NewGame { get; set; }
 
         public MainWindowViewModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
             GameManager = new GameManagerModel(_eventAggregator);
             PlaceSymbol = new RelayCommand(OnPlaceSymbol, x => true);
+            NewGame = new RelayCommand(OnNewGame, x => true);
         }
 
         private void OnPlaceSymbol(object param)
@@ -33,5 +35,7 @@ namespace TicTacToe.ViewModel
             // if not, change the current player
             _eventAggregator.GetEvent<PlayerTookTurnEvent>().Publish();
         }
+
+        private void OnNewGame(object param) => GameManager.GameGrid.ResetGrid();
     }
 }
