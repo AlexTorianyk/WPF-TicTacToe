@@ -37,10 +37,10 @@ namespace TicTacToe.Model
             }
         }
 
+        //if either one is true, return true
         public bool CheckWin()
         {
-            bool ViVon = false;
-            return ViVon;
+            return CheckHorizontalWin() || CheckVerticalWin() || CheckDiagonalWin();
         }
 
         #region CheckWin Helpers
@@ -85,12 +85,9 @@ namespace TicTacToe.Model
             foreach (char tile in GameGrid)
             {
                 if (tile == ' ')
-                {
                     return false;
-                }
             }
             return true;
         }
-        
     }
 }
