@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows;
 using TicTacToe.Utilities;
 using TicTacToe.Utilities.Events;
 
@@ -14,6 +15,13 @@ namespace TicTacToe.Model
         #region Variables and Fields
         private readonly IEventAggregator _eventAggregator;
 
+        private bool _gameOver = false;
+        public bool GameOver
+        {
+            get => _gameOver;
+            set { _gameOver = value; OnPropertyChanged(); }
+        }
+        
         public IPlayerModel Player1 { get; set; }
         public IPlayerModel Player2 { get; set; }
         private IPlayerModel _currentPlayer;
@@ -24,6 +32,7 @@ namespace TicTacToe.Model
         }
         public IGameBoardModel GameGrid { get; set; }
         #endregion
+
         public GameManagerModel(IEventAggregator eventAggregator)
         {
             _eventAggregator = eventAggregator;
@@ -40,6 +49,25 @@ namespace TicTacToe.Model
         }
 
         private void OnPlayerTookTurnEvent()
+        {
+            if (GameGrid.CheckWin())
+            {
+                GameOver = true;
+                MessageBox.Show($"Player {CurrentPlayer.PlayerSymbol} has won! CYKA");
+                CurrentPlayer.PlayerScore++;
+                return;
+            }
+            else if(GameGrid.CheckDraw())
+            {
+                CurrentPlayer.PlayerColor = "LightGray";
+                GameOver = true;
+                MessageBox.Show("DRAW Kurwa");
+                return;
+            }
+            SwitchCurrentPlayer();
+        }
+
+        private void SwitchCurrentPlayer()
         {
             if (CurrentPlayer == Player1)
                 CurrentPlayer = Player2;
