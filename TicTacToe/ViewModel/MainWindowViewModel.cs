@@ -6,6 +6,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TicTacToe.Model;
 using TicTacToe.Utilities;
+using TicTacToe.Utilities.Events;
 
 namespace TicTacToe.ViewModel
 {
@@ -25,7 +26,12 @@ namespace TicTacToe.ViewModel
         private void OnPlaceSymbol(object param)
         {
             int placement = Convert.ToInt32(param);
-            GameManager.GameGrid.TakeTurn(placement, 'O');
+            // placement is a tag in the UI that represents the grid cell that the user clicked on
+            // GameManager.CurrentPlayer.PlayerSymbol represents the symbol of the current player
+            GameManager.GameGrid.TakeTurn(placement, GameManager.CurrentPlayer.PlayerSymbol);
+            // publishes an event to the GameManagerModel to determine if the game has ended 
+            // if not, change the current player
+            _eventAggregator.GetEvent<PlayerTookTurnEvent>().Publish();
         }
     }
 }
