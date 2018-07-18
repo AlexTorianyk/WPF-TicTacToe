@@ -1,12 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
-using System.Data;
-using System.Linq;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 
-namespace TicTacToe
+namespace TicTacToe.View.config
 {
     /// <summary>
     /// Interaction logic for App.xaml
@@ -15,8 +9,8 @@ namespace TicTacToe
     {
         private void ApplicationStartUp(object sender, StartupEventArgs e)
         {
-            var MainWindow = new MainWindow();
-            MainWindow.Show();
+            var mainWindow = new MainWindow();
+            mainWindow.Show();
         }
 
         private void Application_DispatcherUnhandledException(object sender, System.Windows.Threading.DispatcherUnhandledExceptionEventArgs e)

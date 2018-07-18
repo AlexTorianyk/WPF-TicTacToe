@@ -1,10 +1,5 @@
 ﻿using Prism.Events;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+using TicTacToe.Interfaces;
 using TicTacToe.Utilities;
 using TicTacToe.Utilities.Events;
 
@@ -13,9 +8,7 @@ namespace TicTacToe.Model
     public class GameManagerModel : PropertyChange, IGameManagerModel
     {
         #region Variables and Fields
-        private readonly IEventAggregator _eventAggregator;
-
-        private bool _gameOver = false;
+        private bool _gameOver;
         public bool GameOver
         {
             get => _gameOver;
@@ -35,17 +28,28 @@ namespace TicTacToe.Model
 
         public GameManagerModel(IEventAggregator eventAggregator)
         {
-            _eventAggregator = eventAggregator;
-            _eventAggregator.GetEvent<PlayerTookTurnEvent>().Subscribe(OnPlayerTookTurnEvent);
-            InitPlayers();
+            eventAggregator.GetEvent<PlayerTookTurnEvent>().Subscribe(OnPlayerTookTurnEvent);
+            InitGameData();
             GameGrid = new GameBoardModel();
         }
 
-        public void InitPlayers()
+        private void InitGameData()
         {
+            GameOver = false;
             Player1 = new PlayerModel('X', "Blue");
             Player2 = new PlayerModel('O', "Red");
             CurrentPlayer = Player1;
+        }
+
+        public void ResetGameData()
+        {
+            GameOver = false;
+            GameGrid.ResetGrid();
+            // since Player 1 is the only one who is able to be a current player at a draw
+            // and the scores colors at the top are bound to that of the player's
+            // i thought it'd be more efficient to just change his colour, than create 2 new objects
+            // and add a background property and the OnPropertyChanged()[i'm lazey]
+            Player1.PlayerColor = "Blue";
         }
 
         private void OnPlayerTookTurnEvent()
@@ -56,12 +60,14 @@ namespace TicTacToe.Model
                 CurrentPlayer.PlayerScore++;
                 return;
             }
-            else if(GameGrid.CheckDraw())
+
+            if(GameGrid.CheckDraw())
             {
                 CurrentPlayer.PlayerColor = "LightGray";
                 GameOver = true;
                 return;
             }
+
             SwitchCurrentPlayer();
         }
 

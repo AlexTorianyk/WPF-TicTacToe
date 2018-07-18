@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Input;
 
 namespace TicTacToe.Utilities
@@ -12,17 +8,17 @@ namespace TicTacToe.Utilities
         public Action<object> ExecuteMethod { get; set; }
         public Func<object, bool> CanExecuteMethod { get; set; }
 
-        public RelayCommand(Action<Object> executeMethod, Func<object, bool> canExecuteMethod)
+        public RelayCommand(Action<object> executeMethod, Func<object, bool> canExecuteMethod)
         {
             //if the executeMethod is null, throw new exception
-            ExecuteMethod = executeMethod ?? throw new ArgumentNullException("execute");
+            ExecuteMethod = executeMethod ?? throw new ArgumentNullException(nameof(executeMethod));
             CanExecuteMethod = canExecuteMethod;
         }
 
         public event EventHandler CanExecuteChanged
         {
-            add { CommandManager.RequerySuggested += value; }
-            remove { CommandManager.RequerySuggested -= value; }
+            add => CommandManager.RequerySuggested += value;
+            remove => CommandManager.RequerySuggested -= value;
         }
 
         public bool CanExecute(object parameter)

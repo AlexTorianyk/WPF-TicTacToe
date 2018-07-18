@@ -1,17 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using TicTacToe.Model;
 
-namespace TicTacToe.Model
+namespace TicTacToe.Interfaces
 {
     public interface IGameManagerModel
     {
         IPlayerModel Player1 { get; set; }
         IPlayerModel Player2 { get; set; }
         IPlayerModel CurrentPlayer { get; set; }
-        void InitPlayers();
+        void ResetGameData();
         IGameBoardModel GameGrid { get; set; }
     }
 }
