@@ -80,7 +80,7 @@
     <Compile Include="Utilities\Events\PlayerTookTurnEvent.cs" />
     <Compile Include="Utilities\PropertyChange.cs" />
     <Compile Include="Utilities\RelayCommand.cs" />
-    <Compile Include="Utilities\ValueConverters\CellOccupationToEnabledConverter.cs" />
+    <Compile Include="Utilities\ValueConverters\CellOccupationToHitTestVisibleConverter.cs" />
     <Compile Include="Utilities\ValueConverters\DebugDataBindingConverter.cs" />
     <Compile Include="Utilities\ValueConverters\SymbolToColorConverter.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />

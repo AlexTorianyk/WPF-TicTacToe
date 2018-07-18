@@ -61,7 +61,7 @@
 				<Setter.Value>
 					<Binding Path="Content" RelativeSource="{RelativeSource Self}">
 						<Binding.Converter>
-							<valueConverters:CellOccupationToEnabledConverter/>
+							<valueConverters:CellOccupationToHitTestVisibleConverter/>
 						</Binding.Converter>
 					</Binding>
 				</Setter.Value>
@@ -85,7 +85,7 @@
 		<!--Value Converters-->
 		<valueConverters:DebugDataBindingConverter x:Key="DebugConverter"/>
 		<valueConverters:SymbolToColorConverter x:Key="SymbolToColor"/>
-		<valueConverters:CellOccupationToEnabledConverter x:Key="CellOccupationToEnabled"/>
+		<valueConverters:CellOccupationToHitTestVisibleConverter x:Key="CellOccupationToHitTestVisible"/>
 
 	</Window.Resources>
 	
