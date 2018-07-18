@@ -48,6 +48,7 @@
 			<Setter Property="Content" Value="xD"/>
 			<Setter Property="Command" Value="{Binding PlaceSymbol}"/>
 			<Setter Property="CommandParameter" Value="{Binding RelativeSource={RelativeSource Self}, Path=Tag}"/>
+
 			<Setter Property="Foreground">
 				<Setter.Value>
 					<Binding Path="Content" RelativeSource="{RelativeSource Self}">
@@ -57,6 +58,7 @@
 					</Binding>
 				</Setter.Value>
 			</Setter>
+
 			<Setter Property="IsHitTestVisible">
 				<Setter.Value>
 					<Binding Path="Content" RelativeSource="{RelativeSource Self}">
@@ -66,7 +68,7 @@
 					</Binding>
 				</Setter.Value>
 			</Setter>
-			
+
 			<Style.Triggers>
 				<EventTrigger RoutedEvent="Button.Click">
 					<EventTrigger.Actions>
@@ -86,7 +88,7 @@
 		<valueConverters:DebugDataBindingConverter x:Key="DebugConverter"/>
 		<valueConverters:SymbolToColorConverter x:Key="SymbolToColor"/>
 		<valueConverters:CellOccupationToHitTestVisibleConverter x:Key="CellOccupationToHitTestVisible"/>
-
+		<valueConverters:GameOverToHitTestVisibleConverter x:Key="GameOverToHitTestVisibleConverter"/>
 	</Window.Resources>
 	
 	<DockPanel>
