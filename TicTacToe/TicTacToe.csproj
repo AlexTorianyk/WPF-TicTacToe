@@ -82,6 +82,7 @@
     <Compile Include="Utilities\RelayCommand.cs" />
     <Compile Include="Utilities\ValueConverters\CellOccupationToHitTestVisibleConverter.cs" />
     <Compile Include="Utilities\ValueConverters\DebugDataBindingConverter.cs" />
+    <Compile Include="Utilities\ValueConverters\GameOverToHitTestVisibleConverter.cs" />
     <Compile Include="Utilities\ValueConverters\SymbolToColorConverter.cs" />
     <Compile Include="ViewModel\MainWindowViewModel.cs" />
     <Compile Include="View\config\App.xaml.cs">
