@@ -45,11 +45,12 @@ namespace TicTacToe.Model
         {
             GameOver = false;
             GameGrid.ResetGrid();
-            // since Player 1 is the only one who is able to be a current player at a draw
+            // since Player 1 is the only one who is able to be a current player at a draw(fake news)
             // and the scores colors at the top are bound to that of the player's
             // i thought it'd be more efficient to just change his colour, than create 2 new objects
             // and add a background property and the OnPropertyChanged()[i'm lazey]
             Player1.PlayerColor = "Blue";
+            Player2.PlayerColor = "Red";
         }
 
         private void OnPlayerTookTurnEvent()

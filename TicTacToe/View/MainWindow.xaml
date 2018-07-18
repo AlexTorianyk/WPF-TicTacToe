@@ -9,6 +9,12 @@
 		Title="" Height="620" Width="600">
 
 	<Window.Resources>
+		<!--Value Converters-->
+		<valueConverters:DebugDataBindingConverter x:Key="DebugConverter"/>
+		<valueConverters:SymbolToColorConverter x:Key="SymbolToColor"/>
+		<valueConverters:CellOccupationToHitTestVisibleConverter x:Key="CellOccupationToHitTestVisible"/>
+		<valueConverters:GameOverToHitTestVisibleConverter x:Key="GameOverToHitTestVisibleConverter"/>
+
 		<!--Rounded button-->
 		<Style x:Key="RoundBtn" TargetType="{x:Type Button}">
 			<Setter Property="MinHeight" Value="40"/>
@@ -32,6 +38,9 @@
 				<Trigger Property="IsMouseOver" Value="True">
 					<Setter Property="Opacity" Value="0.79"/>
 				</Trigger>
+
+				
+
 			</Style.Triggers>
 		</Style>
 
@@ -81,14 +90,13 @@
 						</BeginStoryboard>
 					</EventTrigger.Actions>
 				</EventTrigger>
+
+				<DataTrigger Binding="{Binding GameManager.GameOver}" Value="True">
+					<Setter Property="IsHitTestVisible" Value="False"/>
+				</DataTrigger>
+
 			</Style.Triggers>
 		</Style>
-
-		<!--Value Converters-->
-		<valueConverters:DebugDataBindingConverter x:Key="DebugConverter"/>
-		<valueConverters:SymbolToColorConverter x:Key="SymbolToColor"/>
-		<valueConverters:CellOccupationToHitTestVisibleConverter x:Key="CellOccupationToHitTestVisible"/>
-		<valueConverters:GameOverToHitTestVisibleConverter x:Key="GameOverToHitTestVisibleConverter"/>
 	</Window.Resources>
 	
 	<DockPanel>
