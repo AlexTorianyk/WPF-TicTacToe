@@ -25,6 +25,7 @@
 			<Setter Property="VerticalAlignment" Value="Center"/>
 			<Setter Property="HorizontalAlignment" Value="Center"/>
 			<Setter Property="Background" Value="IndianRed"/>
+
 			<Setter Property="Template">
 				<Setter.Value>
 					<ControlTemplate TargetType="Button">
@@ -38,8 +39,6 @@
 				<Trigger Property="IsMouseOver" Value="True">
 					<Setter Property="Opacity" Value="0.79"/>
 				</Trigger>
-
-				
 
 			</Style.Triggers>
 		</Style>
@@ -119,10 +118,21 @@
 				
 				<!--Player 1 score-->
 				<DockPanel LastChildFill="False" Grid.Column="1" Grid.Row="1">
-					
-					<TextBlock  DockPanel.Dock="Left" Style="{StaticResource ScoreTxtBlock}"
+
+					<TextBlock  DockPanel.Dock="Left"  
 								Text="{Binding GameManager.Player1.PlayerScore}"
-								Foreground="{Binding GameManager.Player1.PlayerColor}"/>
+								Foreground="{Binding GameManager.Player1.PlayerColor}">
+						<!-- Make the number bold, when it's that player's turn-->
+						<TextBlock.Style>
+							<Style TargetType="TextBlock" BasedOn="{StaticResource ScoreTxtBlock}">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding GameManager.CurrentPlayer.PlayerColor}" Value="Blue">
+										<Setter Property="FontWeight" Value="Bold"/>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</TextBlock.Style>
+					</TextBlock>
 				</DockPanel>
 				
 				<!--New game Button-->
@@ -131,10 +141,22 @@
 
 				<!--Player 2 score-->
 				<DockPanel LastChildFill="False" Grid.Column="3" Grid.Row="1">
-					<TextBlock  DockPanel.Dock="Right" Style="{StaticResource ScoreTxtBlock}"
+					<TextBlock  DockPanel.Dock="Right" 
 								Text="{Binding GameManager.Player2.PlayerScore}"
-								Foreground="{Binding GameManager.Player2.PlayerColor}"/>
+								Foreground="{Binding GameManager.Player2.PlayerColor}">
+						<!-- Make the number bold, when it's that player's turn-->
+						<TextBlock.Style>
+							<Style TargetType="TextBlock" BasedOn="{StaticResource ScoreTxtBlock}">
+								<Style.Triggers>
+									<DataTrigger Binding="{Binding GameManager.CurrentPlayer.PlayerColor}" Value="Red">
+										<Setter Property="FontWeight" Value="Bold"/>
+									</DataTrigger>
+								</Style.Triggers>
+							</Style>
+						</TextBlock.Style>
+					</TextBlock>
 				</DockPanel>
+
 			</Grid>
 		</Border>
 		
