@@ -48,6 +48,7 @@ namespace TicTacToe.Model
             // changing the color is more efficient than creating two objects
             Player1.PlayerColor = "Blue";
             Player2.PlayerColor = "Red";
+            CurrentPlayer = Player1;
         }
 
         private void OnPlayerTookTurnEvent()

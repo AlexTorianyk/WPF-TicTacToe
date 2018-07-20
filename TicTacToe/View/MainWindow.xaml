@@ -97,9 +97,9 @@
 							<Storyboard>
 								<ColorAnimation
 									Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)"
-									From="White" To="LightGreen"
+									From="White" To="Khaki"
 									AutoReverse="True"
-									Duration="0:0:1"
+									Duration="0:0:0.33"
 									/>
 							</Storyboard>
 						</BeginStoryboard>
