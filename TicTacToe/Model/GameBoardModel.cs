@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Threading.Tasks;
 using TicTacToe.Interfaces;
 using TicTacToe.Utilities;
 
@@ -21,7 +22,9 @@ namespace TicTacToe.Model
 
         public void ResetGrid()
         {
-            GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+            // Waits for 0.3 seconds to let the animation do it's thing
+            var t = Task.Delay(300).ContinueWith(x =>
+                GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
         }
 
         // Simulates a player placing a symbol on the grid
