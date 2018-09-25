@@ -7,7 +7,7 @@ namespace TicTacToe.Model
 {
     public class GameBoardModel : PropertyChange, IGameBoardModel
     {
-        // i used an abservable collection because it's much less trouble to represent something in the UI with it
+        // i used an observable collection because it's much less trouble to represent something in the UI with it
         private ObservableCollection<char> _gameGrid;
         public ObservableCollection<char> GameGrid
         {
@@ -23,7 +23,7 @@ namespace TicTacToe.Model
         public void ResetGrid()
         {
             // Waits for 0.3 seconds to let the animation do it's thing
-            var t = Task.Delay(300).ContinueWith(x =>
+            Task.Delay(300).ContinueWith(x =>
                 GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
         }
 
@@ -78,7 +78,7 @@ namespace TicTacToe.Model
         }
         #endregion
 
-        //if atleast on of the tiles is blank, no draw
+        //if at least on of the tiles is blank, no draw
         public bool CheckDraw()
         {
             foreach (char tile in GameGrid)
