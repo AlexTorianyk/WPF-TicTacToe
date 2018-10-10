@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using TicTacToe.Model;
 
 namespace TicTacToe.Interfaces
 {
@@ -7,6 +8,7 @@ namespace TicTacToe.Interfaces
         ObservableCollection<char> GameGrid { get; set; }
         void TakeTurn(int placement, char symbol);
         void ResetGrid();
+        WinAndDrawCheck WinAndDrawChecker { get; }
         bool CheckWin();
         bool CheckDraw();
     }

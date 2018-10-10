@@ -9,7 +9,7 @@ namespace TicTacToe.Model
 {
     public class WinAndDrawCheck
     {
-        private ObservableCollection<char> _gameGrid;
+        private readonly ObservableCollection<char> _gameGrid;
 
         public WinAndDrawCheck(ObservableCollection<char> gameGrid)
         {

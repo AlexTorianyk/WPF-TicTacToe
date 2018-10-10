@@ -53,14 +53,14 @@ namespace TicTacToe.Model
 
         private void OnPlayerTookTurnEvent()
         {
-            if (GameGrid.CheckWin())
+            if (GameGrid.WinAndDrawChecker.CheckWin())
             {
                 GameOver = true;
                 CurrentPlayer.PlayerScore++;
                 return;
             }
 
-            if(GameGrid.CheckDraw())
+            if(GameGrid.WinAndDrawChecker.CheckDraw())
             {
                 CurrentPlayer.PlayerColor = "LightGray";
                 GameOver = true;
