@@ -110,6 +110,7 @@
     <Compile Include="Interfaces\IGameManagerModel.cs" />
     <Compile Include="Interfaces\IPlayerModel.cs" />
     <Compile Include="Model\PlayerModel.cs" />
+    <Compile Include="Model\WinAndDrawCheck.cs" />
     <Compile Include="Utilities\ApplicationServices\ApplicationService.cs" />
     <Compile Include="Utilities\Events\PlayerTookTurnEvent.cs" />
     <Compile Include="Utilities\PropertyChange.cs" />
