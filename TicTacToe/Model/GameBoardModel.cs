@@ -39,56 +39,5 @@ namespace TicTacToe.Model
                 GameGrid[placement] = symbol;
             }
         }
-
-        public bool CheckWin()
-        {
-            return CheckHorizontalWin() || CheckVerticalWin() || CheckDiagonalWin();
-        }
-
-        #region CheckWin Helpers
-        private bool CheckHorizontalWin()
-        {
-            if (GameGrid[1] != ' ' && ((GameGrid[1] == GameGrid[2]) && (GameGrid[2] == GameGrid[3])))
-                return true;
-            else if (GameGrid[4] != ' ' && ((GameGrid[4] == GameGrid[5]) && (GameGrid[5] == GameGrid[6])))
-                return true;
-            else if (GameGrid[7] != ' ' && ((GameGrid[7] == GameGrid[8]) && (GameGrid[8] == GameGrid[9])))
-                return true;
-            else
-                return false;
-        }
-
-        private bool CheckVerticalWin()
-        {
-            if (GameGrid[1] != ' ' && ((GameGrid[1] == GameGrid[4]) && (GameGrid[4] == GameGrid[7])))
-                return true;
-            else if (GameGrid[2] != ' ' && ((GameGrid[2] == GameGrid[5]) && (GameGrid[5] == GameGrid[8])))
-                return true;
-            else if (GameGrid[3] != ' ' && ((GameGrid[3] == GameGrid[6]) && (GameGrid[6] == GameGrid[9])))
-                return true;
-            else
-                return false;
-        }
-
-        private bool CheckDiagonalWin()
-        {
-            if (GameGrid[1] != ' ' && ((GameGrid[1] == GameGrid[5]) && (GameGrid[5] == GameGrid[9])))
-                return true;
-            else if (GameGrid[3] != ' ' && ((GameGrid[3] == GameGrid[5]) && (GameGrid[5] == GameGrid[7])))
-                return true;
-            else
-                return false;
-        }
-        #endregion
-
-        public bool CheckDraw()
-        {
-            foreach (var tile in GameGrid)
-            {
-                if (tile == ' ')
-                    return false;
-            }
-            return true;
-        }
     }
 }

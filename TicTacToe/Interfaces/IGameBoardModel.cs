@@ -9,7 +9,5 @@ namespace TicTacToe.Interfaces
         void TakeTurn(int placement, char symbol);
         void ResetGrid();
         WinAndDrawCheck WinAndDrawChecker { get; }
-        bool CheckWin();
-        bool CheckDraw();
     }
 }
