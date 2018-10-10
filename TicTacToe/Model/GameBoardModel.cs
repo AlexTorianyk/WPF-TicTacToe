@@ -7,6 +7,8 @@ namespace TicTacToe.Model
 {
     public class GameBoardModel : PropertyChange, IGameBoardModel
     {
+        public WinAndDrawCheck WinAndDrawChecker { get; set; }
+
         // i used an observable collection because it's much less trouble to represent something in the UI with it
         private ObservableCollection<char> _gameGrid;
         public ObservableCollection<char> GameGrid
@@ -22,9 +24,11 @@ namespace TicTacToe.Model
 
         public void ResetGrid()
         {
-            // Waits for 0.3 seconds to let the animation do it's thing
             Task.Delay(300).ContinueWith(x =>
-                GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '});
+            {
+                GameGrid = new ObservableCollection<char> {'E', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' ', ' '};
+                WinAndDrawChecker = new WinAndDrawCheck(GameGrid);
+            });
         }
 
         // Simulates a player placing a symbol on the grid
@@ -36,7 +40,6 @@ namespace TicTacToe.Model
             }
         }
 
-        //if either one is true, return true
         public bool CheckWin()
         {
             return CheckHorizontalWin() || CheckVerticalWin() || CheckDiagonalWin();
@@ -78,10 +81,9 @@ namespace TicTacToe.Model
         }
         #endregion
 
-        //if at least on of the tiles is blank, no draw
         public bool CheckDraw()
         {
-            foreach (char tile in GameGrid)
+            foreach (var tile in GameGrid)
             {
                 if (tile == ' ')
                     return false;
