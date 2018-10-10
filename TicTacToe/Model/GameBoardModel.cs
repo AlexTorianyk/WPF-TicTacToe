@@ -32,11 +32,11 @@ namespace TicTacToe.Model
         }
 
         // Simulates a player placing a symbol on the grid
-        public void TakeTurn(int placement, char symbol)
+        public void TakeTurn(int placement, char playerSymbol)
         {
             if (GameGrid[placement] == ' ')
             {
-                GameGrid[placement] = symbol;
+                GameGrid[placement] = playerSymbol;
             }
         }
     }

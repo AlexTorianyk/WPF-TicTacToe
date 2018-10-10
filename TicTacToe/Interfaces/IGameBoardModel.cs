@@ -6,7 +6,7 @@ namespace TicTacToe.Interfaces
     public interface IGameBoardModel
     {
         ObservableCollection<char> GameGrid { get; set; }
-        void TakeTurn(int placement, char symbol);
+        void TakeTurn(int placement, char playerSymbol);
         void ResetGrid();
         WinAndDrawCheck WinAndDrawChecker { get; }
     }
