@@ -1,6 +1,4 @@
-﻿using System.Collections.ObjectModel;
-
-namespace TicTacToe.Model.Interfaces
+﻿namespace TicTacToe.Model.Interfaces
 {
     public interface IGameBoardModel
     {

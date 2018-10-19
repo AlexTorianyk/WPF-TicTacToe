@@ -31,13 +31,18 @@ namespace TicTacToe.Model
             });
         }
 
-        // Simulates a player placing a symbol on the grid
+        // Checks if a tile is empty
         public void TakeTurn(int placement, char playerSymbol)
         {
-            if (GameGrid[placement] == ' ')
+            if (TileEmpty(placement))
             {
                 GameGrid[placement] = playerSymbol;
             }
+        }
+
+        private bool TileEmpty(int placement)
+        {
+            return GameGrid[placement] == ' ';
         }
     }
 }
