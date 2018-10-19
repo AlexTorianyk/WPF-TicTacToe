@@ -1,4 +1,4 @@
-﻿namespace TicTacToe.Interfaces
+﻿namespace TicTacToe.Model.Interfaces
 {
     public interface IPlayerModel
     {

@@ -1,13 +1,11 @@
 ﻿using System.Collections.ObjectModel;
-using TicTacToe.Model;
 
-namespace TicTacToe.Interfaces
+namespace TicTacToe.Model.Interfaces
 {
     public interface IGameBoardModel
     {
-        ObservableCollection<char> GameGrid { get; set; }
         void TakeTurn(int placement, char playerSymbol);
         void ResetGrid();
-        WinAndDrawCheck WinAndDrawChecker { get; }
+        IWinAndDrawCheck WinAndDrawChecker { get; }
     }
 }

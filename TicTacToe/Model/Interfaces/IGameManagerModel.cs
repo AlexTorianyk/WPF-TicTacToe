@@ -1,6 +1,4 @@
-﻿using TicTacToe.Model;
-
-namespace TicTacToe.Interfaces
+﻿namespace TicTacToe.Model.Interfaces
 {
     public interface IGameManagerModel
     {

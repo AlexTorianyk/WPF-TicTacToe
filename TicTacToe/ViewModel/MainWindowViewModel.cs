@@ -1,7 +1,7 @@
 ﻿using Prism.Events;
 using System;
-using TicTacToe.Interfaces;
 using TicTacToe.Model;
+using TicTacToe.Model.Interfaces;
 using TicTacToe.Utilities;
 using TicTacToe.Utilities.Events;
 

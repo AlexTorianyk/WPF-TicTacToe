@@ -1,4 +1,4 @@
-﻿using TicTacToe.Interfaces;
+﻿using TicTacToe.Model.Interfaces;
 using TicTacToe.Utilities;
 
 namespace TicTacToe.Model

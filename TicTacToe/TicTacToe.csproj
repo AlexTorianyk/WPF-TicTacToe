@@ -106,9 +106,10 @@
     </Page>
     <Compile Include="Model\GameBoardModel.cs" />
     <Compile Include="Model\GameManagerModel.cs" />
-    <Compile Include="Interfaces\IGameBoardModel.cs" />
-    <Compile Include="Interfaces\IGameManagerModel.cs" />
-    <Compile Include="Interfaces\IPlayerModel.cs" />
+    <Compile Include="Model\Interfaces\IGameBoardModel.cs" />
+    <Compile Include="Model\Interfaces\IGameManagerModel.cs" />
+    <Compile Include="Model\Interfaces\IPlayerModel.cs" />
+    <Compile Include="Model\Interfaces\IWinAndDrawCheck.cs" />
     <Compile Include="Model\PlayerModel.cs" />
     <Compile Include="Model\WinAndDrawCheck.cs" />
     <Compile Include="Utilities\ApplicationServices\ApplicationService.cs" />

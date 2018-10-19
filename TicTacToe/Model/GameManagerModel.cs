@@ -1,5 +1,5 @@
 ﻿using Prism.Events;
-using TicTacToe.Interfaces;
+using TicTacToe.Model.Interfaces;
 using TicTacToe.Utilities;
 using TicTacToe.Utilities.Events;
 
@@ -23,6 +23,7 @@ namespace TicTacToe.Model
             get => _currentPlayer;
             set { _currentPlayer = value; OnPropertyChanged(); }
         }
+
         public IGameBoardModel GameGrid { get; set; }
         #endregion
 

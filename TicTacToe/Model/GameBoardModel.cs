@@ -1,13 +1,13 @@
 ﻿using System.Collections.ObjectModel;
 using System.Threading.Tasks;
-using TicTacToe.Interfaces;
+using TicTacToe.Model.Interfaces;
 using TicTacToe.Utilities;
 
 namespace TicTacToe.Model
 {
     public class GameBoardModel : PropertyChange, IGameBoardModel
     {
-        public WinAndDrawCheck WinAndDrawChecker { get; set; }
+        public IWinAndDrawCheck WinAndDrawChecker { get; set; }
 
         // i used an observable collection because it's much less trouble to represent something in the UI with it
         private ObservableCollection<char> _gameGrid;
