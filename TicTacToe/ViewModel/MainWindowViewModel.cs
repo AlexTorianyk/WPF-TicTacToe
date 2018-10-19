@@ -26,7 +26,7 @@ namespace TicTacToe.ViewModel
         {
             var placement = Convert.ToInt32(param);
             // placement is a tag in the UI that represents the grid cell that the user clicked on
-            GameManager.GameGrid.TakeTurn(placement, GameManager.CurrentPlayer.PlayerSymbol);
+            GameManager.GameBoard.TakeTurn(placement, GameManager.CurrentPlayer.PlayerSymbol);
             // publishes an event to the GameManagerModel to determine if the game has ended 
             // if not, change the current player
             _eventAggregator.GetEvent<PlayerTookTurnEvent>().Publish();

@@ -24,14 +24,14 @@ namespace TicTacToe.Model
             set { _currentPlayer = value; OnPropertyChanged(); }
         }
 
-        public IGameBoardModel GameGrid { get; set; }
+        public IGameBoardModel GameBoard { get; set; }
         #endregion
 
         public GameManagerModel(IEventAggregator eventAggregator)
         {
             eventAggregator.GetEvent<PlayerTookTurnEvent>().Subscribe(OnPlayerTookTurnEvent);
             InitGameData();
-            GameGrid = new GameBoardModel();
+            GameBoard = new GameBoardModel();
         }
 
         private void InitGameData()
@@ -45,7 +45,7 @@ namespace TicTacToe.Model
         public void ResetGameData()
         {
             GameOver = false;
-            GameGrid.ResetGrid();
+            GameBoard.ResetGrid();
             // changing the color is more efficient than creating two objects
             Player1.PlayerColor = "Blue";
             Player2.PlayerColor = "Red";
@@ -54,14 +54,14 @@ namespace TicTacToe.Model
 
         private void OnPlayerTookTurnEvent()
         {
-            if (GameGrid.WinAndDrawChecker.CheckWin())
+            if (GameBoard.WinAndDrawChecker.CheckWin())
             {
                 GameOver = true;
                 CurrentPlayer.PlayerScore++;
                 return;
             }
 
-            if(GameGrid.WinAndDrawChecker.CheckDraw())
+            if(GameBoard.WinAndDrawChecker.CheckDraw())
             {
                 CurrentPlayer.PlayerColor = "LightGray";
                 GameOver = true;

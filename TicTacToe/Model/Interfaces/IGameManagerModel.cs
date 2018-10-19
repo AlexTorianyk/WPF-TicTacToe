@@ -7,6 +7,6 @@
         IPlayerModel Player2 { get; set; }
         IPlayerModel CurrentPlayer { get; set; }
         void ResetGameData();
-        IGameBoardModel GameGrid { get; set; }
+        IGameBoardModel GameBoard { get; set; }
     }
 }
