@@ -6,7 +6,7 @@ namespace TicTacToe.Model
     public class PlayerModel : PropertyChange, IPlayerModel
     {
         private string _playerColor;
-        private int _playerScore = 0;
+        private int _playerScore;
 
         public char PlayerSymbol { get; set; }
         public string PlayerColor

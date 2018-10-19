@@ -2,8 +2,8 @@
 {
     public interface IGameBoardModel
     {
-        void TakeTurn(int placement, char playerSymbol);
         void ResetGrid();
+        void TakeTurn(int placement, char playerSymbol);
         IWinAndDrawCheck WinAndDrawChecker { get; }
     }
 }
