@@ -7,7 +7,9 @@ namespace TicTacToe.Model
 {
     public class GameManagerModel : PropertyChange, IGameManagerModel
     {
-        #region Variables and Fields
+        public IGameBoardModel GameBoard { get; set; }
+        public IWinAndDrawCheck WinAndDrawChecker { get; set; }
+
         private bool _gameOver;
         public bool GameOver
         {
@@ -17,6 +19,7 @@ namespace TicTacToe.Model
         
         public IPlayerModel Player1 { get; set; }
         public IPlayerModel Player2 { get; set; }
+
         private IPlayerModel _currentPlayer;
         public IPlayerModel CurrentPlayer
         {
@@ -24,31 +27,24 @@ namespace TicTacToe.Model
             set { _currentPlayer = value; OnPropertyChanged(); }
         }
 
-        public IGameBoardModel GameBoard { get; set; }
-        #endregion
-
         public GameManagerModel(IEventAggregator eventAggregator)
         {
-            eventAggregator.GetEvent<PlayerTookTurnEvent>().Subscribe(OnPlayerTookTurnEvent);
             InitGameData();
+            eventAggregator.GetEvent<PlayerTookTurnEvent>().Subscribe(OnPlayerTookTurnEvent);
             GameBoard = new GameBoardModel();
         }
+
 
         private void InitGameData()
         {
             GameOver = false;
-            Player1 = new PlayerModel('X', "Blue");
-            Player2 = new PlayerModel('O', "Red");
-            CurrentPlayer = Player1;
+            InitPlayers();
         }
 
-        public void ResetGameData()
+        private void InitPlayers()
         {
-            GameOver = false;
-            GameBoard.ResetGrid();
-            // changing the color is more efficient than creating two objects
-            Player1.PlayerColor = "Blue";
-            Player2.PlayerColor = "Red";
+            Player1 = new PlayerModel('X', "Blue");
+            Player2 = new PlayerModel('O', "Red");
             CurrentPlayer = Player1;
         }
 
@@ -56,8 +52,8 @@ namespace TicTacToe.Model
         {
             if (GameBoard.WinAndDrawChecker.CheckWin())
             {
-                GameOver = true;
                 CurrentPlayer.PlayerScore++;
+                GameOver = true;
                 return;
             }
 
@@ -69,6 +65,21 @@ namespace TicTacToe.Model
             }
 
             SwitchCurrentPlayer();
+        }
+
+        public void ResetGameData()
+        {
+            GameOver = false;
+            GameBoard.ResetGrid();
+            ResetPlayerData();
+        }
+
+        private void ResetPlayerData()
+        {
+            // changing the color is more efficient than creating two objects
+            Player1.PlayerColor = "Blue";
+            Player2.PlayerColor = "Red";
+            CurrentPlayer = Player1;
         }
 
         private void SwitchCurrentPlayer()
