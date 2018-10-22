@@ -4,6 +4,7 @@
     {
         void ResetGrid();
         void TakeTurn(int placement, char playerSymbol);
-        IWinAndDrawCheck WinAndDrawChecker { get; }
+        bool CheckWin();
+        bool CheckDraw();
     }
 }
