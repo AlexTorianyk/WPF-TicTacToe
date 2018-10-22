@@ -44,5 +44,15 @@ namespace TicTacToe.Model
         {
             return GameGrid[placement] == ' ';
         }
+
+        public bool CheckWin()
+        {
+            return WinAndDrawChecker.CheckWin();
+        }
+
+        public bool CheckDraw()
+        {
+            return WinAndDrawChecker.CheckDraw();
+        }
     }
 }

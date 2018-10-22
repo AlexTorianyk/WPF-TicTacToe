@@ -57,10 +57,15 @@ namespace TicTacToe.Model
         {
             foreach (var tile in _gameGrid)
             {
-                if (tile == ' ')
+                if (TileEmpty(tile))
                     return false;
             }
             return true;
+        }
+
+        private static bool TileEmpty(char tile)
+        {
+            return tile == ' ';
         }
     }
 }
